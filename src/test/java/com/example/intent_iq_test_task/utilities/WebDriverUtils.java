@@ -15,8 +15,13 @@ public class WebDriverUtils {
         return initializeWebDriver(browserType, Optional.empty());
     }
 
-    // The relatively complex WebDriver initialization system was chosen because of the significant difference between
-    // the two groups of tests - the UI test and the browser settings tests.
+    /*
+    The relatively complex WebDriver initialization system was chosen because of the significant difference between
+    the two groups of tests - the UI test and the browser settings tests.
+
+    Manually configuring WebDriver instead of using the WebDriverManager library was chosen with the idea that tests 
+    will be performed on the environment without automatically updating browser versions.
+    */
     public static WebDriver initializeWebDriver(BrowserType browserType, Optional<String> customCookies) {
         switch (browserType) {
             case FIREFOX_WITH_CUSTOM_COOKIES:
