@@ -52,6 +52,17 @@ public class WebDriverUtils {
         return new ChromeDriver(options);
     }
 
+    /*
+    This solution contains a visual bug for the chrome://settings page, with the "Block third-party cookies in 
+    Incognito mode" setting selected. Nevertheless, you can check the solution's functionality by opening 
+    the twitter.com website, for example - once enabled, an eye icon will appear in the address bar as a sign.
+
+    Link: 
+        https://mspoweruser.com/test-third-party-cookie-phaseout/
+        https://twitter.com/Leopeva64/status/1687657537552666624
+
+    Another possible solution is to use a pre-configured Google Chrome profile.
+    */
     private static WebDriver initializeChromeRejectedThirdPartyCookies() {
         System.setProperty("webdriver.chrome.driver", getDriverDirPath() + getDriverFilename(BrowserNames.CHROME));
 
